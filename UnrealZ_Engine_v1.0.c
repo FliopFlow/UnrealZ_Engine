@@ -254,7 +254,6 @@ void createQuadrilateral(double x1,double y1,double x2,double y2,double x3,doubl
 void Render(defLine lines[MAXLINECOUNT],int linesCount,defCircle circles[MAXCIRCLECOUNT],int circlesCount,short trX,short trY,double rollDeg)
 {
 	defLine *rendLines=malloc(sizeof(defLine)*linesCount);
-	defCircle *rendCircles=malloc(sizeof(defCircle)*circlesCount);
 	for(int i=0;i<linesCount;i++)
 	{
 		rendLines[i].x1=lines[i].x1*cos(rollDeg)-lines[i].y1*sin(rollDeg);
@@ -265,6 +264,7 @@ void Render(defLine lines[MAXLINECOUNT],int linesCount,defCircle circles[MAXCIRC
 	}
 	printLines(rendLines,linesCount);
 	free(rendLines);
+	defCircle *rendCircles=malloc(sizeof(defCircle)*circlesCount);
 	for(int i=0;i<circlesCount;i++)
 	{
 		rendCircles[i].x=circles[i].x*cos(rollDeg)-circles[i].y*sin(rollDeg);
